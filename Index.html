@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ELARA — Women's Denim</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+/* TOP BAR */
+.topbar{
+    height:38px;
+    background:#171717;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* HEADER */
+header{
+    height:82px;
+    border-bottom:1px solid #eee;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    padding:0 28px;
+    position:relative;
+    background:#fff;
+}
+
+.menu{
+    font-size:27px;
+    cursor:pointer;
+    width:35px;
+}
+
+.logo{
+    font-family:Georgia,serif;
+    font-size:30px;
+    letter-spacing:8px;
+    font-weight:500;
+}
+
+.icons{
+    display:flex;
+    justify-content:flex-end;
+    gap:24px;
+    font-size:25px;
+}
+
+.icon{
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    width:100%;
+    height:72vh;
+    min-height:520px;
+    overflow:hidden;
+    background:#eee;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-text{
+    position:absolute;
+    left:7%;
+    bottom:9%;
+    color:#fff;
+    text-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+.hero-text small{
+    font-size:11px;
+    letter-spacing:4px;
+}
+
+.hero-text h1{
+    font-family:Georgia,serif;
+    font-size:58px;
+    font-weight:400;
+    margin:12px 0;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:#fff;
+    color:#111;
+    padding:14px 25px;
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* COLLECTION */
+.collection{
+    padding:70px 5%;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.section-head h2{
+    font-family:Georgia,serif;
+    font-size:42px;
+    font-weight:400;
+}
+
+.viewall{
+    font-size:11px;
+    letter-spacing:2px;
+    text-decoration:underline;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.product{
+    background:#f5f5f5;
+    overflow:hidden;
+}
+
+.product-image{
+    width:100%;
+    height:470px;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+}
+
+.product:hover .product-image{
+    transform:scale(1.03);
+}
+
+.product-info{
+    background:#fff;
+    padding:17px 5px 20px;
+}
+
+.product-name{
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.product-type{
+    color:#777;
+    font-size:11px;
+    margin-bottom:9px;
+}
+
+.price{
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* ABOUT */
+.about{
+    background:#f5f3ee;
+    padding:100px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about h2{
+    font-family:Georgia,serif;
+    font-size:58px;
+    font-weight:400;
+    line-height:1;
+}
+
+.about p{
+    color:#666;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.about-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:#111;
+    color:#fff;
+    padding:15px 25px;
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-bottom:1px solid #ddd;
+}
+
+.feature{
+    padding:45px 20px;
+    text-align:center;
+    border-right:1px solid #ddd;
+}
+
+.feature:last-child{
+    border:none;
+}
+
+.feature h3{
+    font-family:Georgia,serif;
+    font-size:20px;
+    font-weight:400;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#777;
+    font-size:11px;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:70px 20px 30px;
+}
+
+.footer-logo{
+    font-family:Georgia,serif;
+    font-size:35px;
+    letter-spacing:8px;
+}
+
+footer p{
+    color:#999;
+    font-size:12px;
+    margin-top:15px;
+}
+
+.footer-links{
+    margin-top:30px;
+}
+
+.footer-links a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 12px;
+    font-size:11px;
+}
+
+.copy{
+    margin-top:45px;
+    border-top:1px solid #333;
+    padding-top:25px;
+    color:#777;
+    font-size:10px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    background:#111;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:11px;
+    z-index:100;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    header{
+        height:70px;
+        padding:0 18px;
+    }
+
+    .logo{
+        font-size:23px;
+        letter-spacing:6px;
+    }
+
+    .icons{
+        gap:14px;
+        font-size:21px;
+    }
+
+    .hero{
+        height:68vh;
+        min-height:500px;
+    }
+
+    .hero-text{
+        left:6%;
+        bottom:7%;
+    }
+
+    .hero-text h1{
+        font-size:43px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-image{
+        height:330px;
+    }
+
+    .collection{
+        padding:55px 12px;
+    }
+
+    .section-head h2{
+        font-size:31px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+        gap:35px;
+        padding:70px 25px;
+    }
+
+    .about h2{
+        font-size:45px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        border-right:0;
+        border-bottom:1px solid #ddd;
+    }
+}
+
+@media(max-width:430px){
+
+    .topbar{
+        font-size:9px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .product-image{
+        height:270px;
+    }
+
+    .product-name{
+        font-size:12px;
+    }
+
+    .hero-text h1{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    ELARA — PREMIUM WOMEN'S DENIM
+</div>
+
+<!-- HEADER -->
+<header>
+
+    <div class="menu">☰</div>
+
+    <div class="logo">ELARA</div>
+
+    <div class="icons">
+        <div class="icon">⌕</div>
+        <div class="icon">🛒</div>
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1600&q=90">
+
+    <div class="hero-text">
+        <small>ELARA WOMEN'S DENIM</small>
+        <h1>New Denim<br>Collection</h1>
+
+        <a href="#collection" class="hero-btn">
+            SHOP COLLECTION
+        </a>
+    </div>
+
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+
+    <div class="section-head">
+        <h2>New Arrivals</h2>
+
+        <a href="#collection" class="viewall">
+            VIEW ALL
+        </a>
+    </div>
+
+    <div class="products">
+
+        <!-- PRODUCT 1 -->
+        <div class="product">
+
+            <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?auto=format&fit=crop&w=800&q=85">
+
+            <div class="product-info">
+                <div class="product-name">
+                    Wide Leg Jeans
+                </div>
+
+                <div class="product-type">
+                    Premium Denim · Sizes 26–36
+                </div>
+
+                <div class="price">
+                    Rs. 1,999
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product">
+
+            <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=800&q=85">
+
+            <div class="product-info">
+                <div class="product-name">
+                    Mom Fit Jeans
+                </div>
+
+                <div class="product-type">
+                    Premium Denim · Sizes 26–36
+                </div>
+
+                <div class="price">
+                    Rs. 1,899
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product">
+
+            <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85">
+
+            <div class="product-info">
+                <div class="product-name">
+                    Baggy Jeans
+                </div>
+
+                <div class="product-type">
+                    Relaxed Fit · Sizes 26–36
+                </div>
+
+                <div class="price">
+                    Rs. 2,199
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 4 -->
+        <div class="product">
+
+            <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=800&q=85">
+
+            <div class="product-info">
+                <div class="product-name">
+                    Denim Cargo
+                </div>
+
+                <div class="product-type">
+                    Utility Fit · Sizes 16–30
+                </div>
+
+                <div class="price">
+                    Rs. 1,999
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+
+    <div class="feature">
+        <h3>Premium Denim</h3>
+        <p>Quality fabric with attention to every detail.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Made in Pakistan</h3>
+        <p>Designed and manufactured in Pakistan.</p>
+    </div>
+
+    <div class="feature">
+        <h3>Modern Fits</h3>
+        <p>Contemporary styles for everyday fashion.</p>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div>
+        <h2>
+            Denim made<br>
+            for your<br>
+            style.
+        </h2>
+    </div>
+
+    <div>
+
+        <p>
+            ELARA is a women's denim brand from Pakistan,
+            focused on modern fits, premium denim and
+            contemporary everyday fashion.
+        </p>
+
+        <p style="margin-top:18px;">
+            Explore our collection of wide-leg, mom-fit,
+            baggy and cargo denim designed for the modern woman.
+        </p>
+
+        <a href="#collection" class="about-btn">
+            EXPLORE ELARA
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        ELARA
+    </div>
+
+    <p>
+        Premium Women's Denim · Made in Pakistan
+    </p>
+
+    <div class="footer-links">
+        <a href="#collection">SHOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#">INSTAGRAM</a>
+        <a href="#">TIKTOK</a>
+    </div>
+
+    <div class="copy">
+        © 2026 ELARA. All Rights Reserved.
+    </div>
+
+</footer>
+
+<!-- WHATSAPP -->
+<a
+class="whatsapp"
+href="https://wa.me/923363121764"
+target="_blank">
+WA
+</a>
+
+</body>
+</html>
