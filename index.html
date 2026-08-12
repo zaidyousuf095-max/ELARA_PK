@@ -7,122 +7,142 @@
 <title>ELARA — Premium Women's Denim</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#fff;
     color:#111;
 }
+button,input{font:inherit}
+button{cursor:pointer}
 
 .topbar{
     height:38px;
-    background:#171717;
+    background:#111;
     color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
     text-align:center;
+    padding:0 10px;
 }
 
 header{
-    min-height:82px;
+    height:82px;
     border-bottom:1px solid #eee;
     display:grid;
     grid-template-columns:1fr auto 1fr;
     align-items:center;
     padding:10px 28px;
     background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.menu{
-    font-size:27px;
+.menu-btn,
+.icon-btn{
+    border:0;
+    background:none;
+    color:#111;
+    font-size:25px;
 }
 
+.menu-btn{font-size:27px}
 .logo img{
     width:150px;
     max-height:60px;
     object-fit:contain;
     display:block;
 }
-
 .icons{
     display:flex;
     justify-content:flex-end;
-    gap:24px;
-    font-size:25px;
+    gap:20px;
+    align-items:center;
+}
+.icon-btn{position:relative}
+
+.cart-count{
+    position:absolute;
+    top:-8px;
+    right:-9px;
+    background:#111;
+    color:#fff;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    font-size:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .hero{
     position:relative;
     width:100%;
-    height:70vh;
-    min-height:500px;
+    height:72vh;
+    min-height:520px;
     overflow:hidden;
     background:#eee;
 }
-
 .hero img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
-
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 65%);
+}
 .hero-text{
     position:absolute;
     left:7%;
     bottom:9%;
     color:#fff;
-    text-shadow:0 2px 10px rgba(0,0,0,.4);
+    z-index:2;
+    text-shadow:0 2px 12px rgba(0,0,0,.35);
 }
-
 .hero-text small{
     font-size:11px;
     letter-spacing:4px;
 }
-
 .hero-text h1{
     font-family:Georgia,serif;
     font-size:58px;
     font-weight:400;
-    margin:12px 0;
+    margin:12px 0 25px;
+    line-height:1.02;
 }
-
 .hero-btn{
     display:inline-block;
     background:#fff;
     color:#111;
-    padding:14px 25px;
+    padding:15px 27px;
     text-decoration:none;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
 }
 
-.collection{
-    padding:70px 5%;
-}
-
+.collection{padding:75px 5%}
 .section-head{
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    align-items:end;
     margin-bottom:35px;
 }
-
 .section-head h2{
     font-family:Georgia,serif;
     font-size:40px;
     font-weight:400;
 }
-
 .viewall{
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
 }
 
@@ -131,82 +151,127 @@ header{
     grid-template-columns:repeat(3,1fr);
     gap:22px;
 }
-
 .product{
+    position:relative;
     background:#f5f5f5;
     overflow:hidden;
 }
-
+.product-image-wrap{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
 .product-image{
     width:100%;
     height:500px;
     object-fit:cover;
     display:block;
-    transition:.4s;
+    transition:.5s;
 }
+.product:hover .product-image{transform:scale(1.035)}
 
-.product:hover .product-image{
-    transform:scale(1.03);
+.wish-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    font-size:19px;
+    z-index:3;
+}
+.wish-btn.active{color:#111}
+
+.quick-view{
+    position:absolute;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    background:#fff;
+    border:0;
+    padding:13px;
+    font-size:9px;
+    letter-spacing:2px;
+    opacity:0;
+    transform:translateY(10px);
+    transition:.3s;
+}
+.product:hover .quick-view{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .product-info{
     background:#fff;
     padding:18px 8px 22px;
 }
-
 .product-name{
     font-size:15px;
     margin-bottom:8px;
     font-weight:500;
 }
-
 .product-type{
     color:#777;
     font-size:11px;
     line-height:1.7;
     margin-bottom:10px;
 }
-
 .price{
     font-size:13px;
     font-weight:bold;
     line-height:1.8;
 }
-
 .order-btn{
     display:block;
+    width:100%;
     margin-top:15px;
     background:#111;
     color:#fff;
     text-align:center;
     padding:14px 8px;
+    border:0;
     text-decoration:none;
     font-size:10px;
     letter-spacing:1.5px;
 }
 
-.order-btn:hover{
-    background:#333;
-}
-
 .info-box{
     margin-top:35px;
-    padding:25px;
+    padding:28px;
     background:#f5f3ee;
     text-align:center;
 }
-
 .info-box h3{
     font-family:Georgia,serif;
     font-size:25px;
     margin-bottom:10px;
 }
-
 .info-box p{
     color:#666;
     font-size:13px;
     line-height:1.8;
 }
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-bottom:1px solid #ddd;
+}
+.feature{
+    padding:45px 20px;
+    text-align:center;
+    border-right:1px solid #ddd;
+}
+.feature:last-child{border:none}
+.feature h3{
+    font-family:Georgia,serif;
+    font-size:20px;
+    font-weight:400;
+    margin-bottom:10px;
+}
+.feature p{color:#777;font-size:11px}
 
 .about{
     background:#f5f3ee;
@@ -216,20 +281,17 @@ header{
     gap:80px;
     align-items:center;
 }
-
 .about h2{
     font-family:Georgia,serif;
     font-size:58px;
     font-weight:400;
     line-height:1;
 }
-
 .about p{
     color:#666;
     line-height:1.9;
     font-size:14px;
 }
-
 .about-btn{
     display:inline-block;
     margin-top:25px;
@@ -237,36 +299,8 @@ header{
     color:#fff;
     padding:15px 25px;
     text-decoration:none;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border-bottom:1px solid #ddd;
-}
-
-.feature{
-    padding:45px 20px;
-    text-align:center;
-    border-right:1px solid #ddd;
-}
-
-.feature:last-child{
-    border:none;
-}
-
-.feature h3{
-    font-family:Georgia,serif;
-    font-size:20px;
-    font-weight:400;
-    margin-bottom:10px;
-}
-
-.feature p{
-    color:#777;
-    font-size:11px;
 }
 
 footer{
@@ -275,36 +309,406 @@ footer{
     text-align:center;
     padding:70px 20px 30px;
 }
-
 .footer-logo{
     font-family:Georgia,serif;
     font-size:35px;
     letter-spacing:8px;
 }
-
-footer p{
-    color:#999;
-    font-size:12px;
-    margin-top:15px;
-}
-
-.footer-links{
-    margin-top:30px;
-}
-
+footer p{color:#999;font-size:12px;margin-top:15px}
+.footer-links{margin-top:30px}
+.footer-links button,
 .footer-links a{
+    background:none;
+    border:0;
     color:#fff;
     text-decoration:none;
     margin:0 12px;
-    font-size:11px;
+    font-size:10px;
 }
-
 .copy{
     margin-top:45px;
     border-top:1px solid #333;
     padding-top:25px;
     color:#777;
     font-size:10px;
+}
+
+/* SIDE MENU */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:2000;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+}
+.overlay.active{opacity:1;visibility:visible}
+
+.side-menu{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width:360px;
+    max-width:88%;
+    background:#fff;
+    z-index:2100;
+    transform:translateX(-100%);
+    transition:.35s;
+    padding:28px;
+    overflow:auto;
+}
+.side-menu.active{transform:translateX(0)}
+.close{
+    border:0;
+    background:none;
+    font-size:28px;
+    float:right;
+}
+.menu-logo{
+    clear:both;
+    padding-top:45px;
+    font-family:Georgia,serif;
+    font-size:30px;
+    letter-spacing:6px;
+}
+.menu-links{margin-top:50px}
+.menu-links button{
+    display:block;
+    width:100%;
+    text-align:left;
+    border:0;
+    background:none;
+    padding:17px 0;
+    border-bottom:1px solid #eee;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* SEARCH */
+.search-panel{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    z-index:2200;
+    padding:30px 6%;
+    transform:translateY(-100%);
+    transition:.35s;
+    overflow:auto;
+}
+.search-panel.active{transform:translateY(0)}
+.search-top{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    border-bottom:1px solid #111;
+    padding-bottom:15px;
+}
+.search-top input{
+    flex:1;
+    border:0;
+    outline:0;
+    font-size:25px;
+}
+.search-close{
+    border:0;
+    background:none;
+    font-size:28px;
+}
+.search-results{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+.search-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+.search-card h4{
+    font-size:13px;
+    margin-top:10px;
+}
+
+/* PRODUCT MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.modal.active{display:flex}
+.product-modal{
+    background:#fff;
+    width:100%;
+    max-width:950px;
+    max-height:92vh;
+    overflow:auto;
+    position:relative;
+}
+.modal-close{
+    position:absolute;
+    right:18px;
+    top:15px;
+    width:38px;
+    height:38px;
+    border:0;
+    background:#fff;
+    font-size:25px;
+    z-index:5;
+}
+.product-detail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+.detail-image{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+}
+.detail-info{padding:55px 40px}
+.detail-info h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:34px;
+}
+.detail-sub{
+    color:#777;
+    font-size:12px;
+    margin:12px 0 20px;
+    line-height:1.8;
+}
+.detail-price{
+    font-size:16px;
+    line-height:2;
+    margin-bottom:25px;
+}
+.size-title{
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+.sizes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.size-btn{
+    min-width:52px;
+    padding:12px 8px;
+    background:#fff;
+    border:1px solid #ccc;
+    font-size:11px;
+}
+.size-btn.selected{
+    background:#111;
+    color:#fff;
+    border-color:#111;
+}
+.detail-actions{
+    margin-top:30px;
+}
+.add-btn,
+.whatsapp-order{
+    width:100%;
+    padding:16px;
+    border:0;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-top:10px;
+}
+.add-btn{background:#111;color:#fff}
+.whatsapp-order{background:#eee;color:#111}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:20px;
+}
+.quantity button{
+    width:34px;
+    height:34px;
+    background:#fff;
+    border:1px solid #ccc;
+}
+.quantity span{min-width:20px;text-align:center}
+
+/* CART */
+.cart-panel{
+    position:fixed;
+    right:0;
+    top:0;
+    bottom:0;
+    width:420px;
+    max-width:92%;
+    background:#fff;
+    z-index:2500;
+    transform:translateX(100%);
+    transition:.35s;
+    padding:25px;
+    overflow:auto;
+}
+.cart-panel.active{transform:translateX(0)}
+.cart-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:20px;
+    border-bottom:1px solid #ddd;
+}
+.cart-head h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+}
+.cart-items{padding:20px 0}
+.cart-item{
+    display:grid;
+    grid-template-columns:75px 1fr auto;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+.cart-item img{
+    width:75px;
+    height:90px;
+    object-fit:cover;
+}
+.cart-item h4{font-size:12px;margin-bottom:7px}
+.cart-item p{font-size:10px;color:#777;line-height:1.7}
+.cart-remove{
+    border:0;
+    background:none;
+    font-size:18px;
+}
+.cart-qty{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top:7px;
+}
+.cart-qty button{
+    width:24px;
+    height:24px;
+    border:1px solid #ddd;
+    background:#fff;
+}
+.cart-total{
+    border-top:1px solid #111;
+    padding-top:20px;
+}
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-size:13px;
+}
+.checkout-btn{
+    width:100%;
+    border:0;
+    background:#111;
+    color:#fff;
+    padding:16px;
+    margin-top:15px;
+    letter-spacing:2px;
+    font-size:10px;
+}
+.empty{
+    text-align:center;
+    padding:60px 10px;
+    color:#777;
+    font-size:12px;
+}
+
+/* CHECKOUT */
+.checkout{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    z-index:4000;
+    display:none;
+    overflow:auto;
+}
+.checkout.active{display:block}
+.checkout-inner{
+    max-width:850px;
+    margin:auto;
+    padding:35px 25px 70px;
+}
+.checkout-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:20px;
+}
+.checkout-head h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+}
+.checkout-form{
+    margin-top:30px;
+}
+.checkout-form label{
+    display:block;
+    font-size:10px;
+    letter-spacing:1px;
+    margin:18px 0 7px;
+}
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    outline:none;
+    background:#fff;
+}
+.checkout-form textarea{min-height:90px;resize:vertical}
+.checkout-summary{
+    margin-top:30px;
+    padding:25px;
+    background:#f5f3ee;
+}
+.place-order{
+    width:100%;
+    margin-top:20px;
+    padding:17px;
+    background:#111;
+    color:#fff;
+    border:0;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,20px);
+    background:#111;
+    color:#fff;
+    padding:13px 20px;
+    font-size:10px;
+    letter-spacing:1px;
+    z-index:5000;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
 }
 
 .whatsapp{
@@ -322,116 +726,41 @@ footer p{
     text-decoration:none;
     font-size:10px;
     letter-spacing:1px;
-    z-index:100;
+    z-index:1000;
 }
 
 @media(max-width:800px){
-
-    header{
-        min-height:70px;
-        padding:8px 18px;
-    }
-
-    .logo img{
-        width:120px;
-        max-height:50px;
-    }
-
-    .icons{
-        gap:14px;
-        font-size:21px;
-    }
-
-    .hero{
-        height:65vh;
-        min-height:480px;
-    }
-
-    .hero-text{
-        left:6%;
-        bottom:7%;
-    }
-
-    .hero-text h1{
-        font-size:43px;
-    }
-
-    .products{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .product-image{
-        height:330px;
-    }
-
-    .collection{
-        padding:55px 12px;
-    }
-
-    .section-head h2{
-        font-size:28px;
-    }
-
-    .section-head{
-        display:block;
-    }
-
-    .viewall{
-        display:block;
-        margin-top:8px;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-        gap:35px;
-        padding:70px 25px;
-    }
-
-    .about h2{
-        font-size:45px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .feature{
-        border-right:0;
-        border-bottom:1px solid #ddd;
-    }
+    header{height:70px;padding:8px 18px}
+    .logo img{width:120px;max-height:50px}
+    .icons{gap:12px}
+    .hero{height:65vh;min-height:480px}
+    .hero-text{left:6%;bottom:7%}
+    .hero-text h1{font-size:43px}
+    .products{grid-template-columns:1fr 1fr;gap:10px}
+    .product-image{height:330px}
+    .collection{padding:55px 12px}
+    .section-head{display:block}
+    .section-head h2{font-size:28px}
+    .viewall{display:block;margin-top:8px}
+    .about{grid-template-columns:1fr;gap:35px;padding:70px 25px}
+    .about h2{font-size:45px}
+    .features{grid-template-columns:1fr}
+    .feature{border-right:0;border-bottom:1px solid #ddd}
+    .product-detail{grid-template-columns:1fr}
+    .detail-image{height:430px}
+    .detail-info{padding:30px 22px}
+    .search-results{grid-template-columns:1fr 1fr}
+    .search-card img{height:240px}
 }
 
 @media(max-width:430px){
-
-    .topbar{
-        font-size:8px;
-    }
-
-    .products{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .product-image{
-        height:270px;
-    }
-
-    .product-name{
-        font-size:12px;
-    }
-
-    .price{
-        font-size:11px;
-    }
-
-    .order-btn{
-        font-size:8px;
-        padding:11px 4px;
-    }
-
-    .hero-text h1{
-        font-size:38px;
-    }
+    .topbar{font-size:7px}
+    .products{grid-template-columns:1fr 1fr}
+    .product-image{height:270px}
+    .product-name{font-size:12px}
+    .price{font-size:11px}
+    .order-btn{font-size:8px;padding:11px 4px}
+    .hero-text h1{font-size:38px}
 }
 </style>
 </head>
@@ -439,30 +768,30 @@ footer p{
 <body>
 
 <div class="topbar">
-    ELARA — PREMIUM WOMEN'S DENIM · WHOLESALE & RETAIL
+ELARA — PREMIUM WOMEN'S DENIM · WHOLESALE & RETAIL
 </div>
 
 <header>
-
-    <div class="menu">☰</div>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
 
     <div class="logo">
         <img src="file_00000000043082119aa9a48a1ea4bdaf.png" alt="ELARA">
     </div>
 
     <div class="icons">
-        <div>⌕</div>
-        <div>🛒</div>
-    </div>
+        <button class="icon-btn" onclick="openSearch()">⌕</button>
 
+        <button class="icon-btn" onclick="openCart()">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
 </header>
 
 <section class="hero">
-
     <img src="file_000000000e2882118b0e73aa51d306a3.png" alt="ELARA Denim Collection">
 
     <div class="hero-text">
-
         <small>ELARA WOMEN'S DENIM</small>
 
         <h1>
@@ -470,150 +799,26 @@ footer p{
             Denim Collection
         </h1>
 
-        <a href="#collection" class="hero-btn">
-            SHOP COLLECTION
-        </a>
-
+        <a href="#collection" class="hero-btn">SHOP COLLECTION</a>
     </div>
-
 </section>
 
 <section class="collection" id="collection">
 
     <div class="section-head">
-
         <h2>ELARA Collection</h2>
-
-        <span class="viewall">
-            WHOLESALE & RETAIL AVAILABLE
-        </span>
-
+        <span class="viewall">WHOLESALE & RETAIL AVAILABLE</span>
     </div>
 
-    <div class="products">
-
-        <!-- PRODUCT 1 -->
-
-        <div class="product">
-
-            <img
-            class="product-image"
-            src="file_000000000e2882118b0e73aa51d306a3.png"
-            alt="Floral Wide Leg Denim">
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    Floral Wide Leg Denim
-                </div>
-
-                <div class="product-type">
-                    Premium Denim · Wide Leg Fit<br>
-                    Sizes: 18–28 & 24–34
-                </div>
-
-                <div class="price">
-                    Wholesale: Rs. 700<br>
-                    Retail: Rs. 1,999
-                </div>
-
-                <a
-                class="order-btn"
-                href="https://wa.me/923363121764?text=Hello%20ELARA,%20I%20want%20to%20order%20Floral%20Wide%20Leg%20Denim."
-                target="_blank">
-                    ORDER ON WHATSAPP
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- PRODUCT 2 -->
-
-        <div class="product">
-
-            <img
-            class="product-image"
-            src="file_000000009fd88211ae832e76fac450d9.jpg"
-            alt="Grey Floral Denim">
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    Grey Floral Embroidered Denim
-                </div>
-
-                <div class="product-type">
-                    Premium Denim · Wide Leg Fit<br>
-                    Sizes: 18–28 & 24–34
-                </div>
-
-                <div class="price">
-                    Wholesale: Rs. 700<br>
-                    Retail: Rs. 1,999
-                </div>
-
-                <a
-                class="order-btn"
-                href="https://wa.me/923363121764?text=Hello%20ELARA,%20I%20want%20to%20order%20Grey%20Floral%20Embroidered%20Denim."
-                target="_blank">
-                    ORDER ON WHATSAPP
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- PRODUCT 3 -->
-
-        <div class="product">
-
-            <img
-            class="product-image"
-            src="1786184006290.png"
-            alt="Butterfly Embroidered Denim">
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    Butterfly Embroidered Denim
-                </div>
-
-                <div class="product-type">
-                    Premium Denim · Relaxed Fit<br>
-                    Sizes: 18–28 & 24–34
-                </div>
-
-                <div class="price">
-                    Wholesale: Rs. 700<br>
-                    Retail: Rs. 1,999
-                </div>
-
-                <a
-                class="order-btn"
-                href="https://wa.me/923363121764?text=Hello%20ELARA,%20I%20want%20to%20order%20Butterfly%20Embroidered%20Denim."
-                target="_blank">
-                    ORDER ON WHATSAPP
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
+    <div class="products" id="products"></div>
 
     <div class="info-box">
-
         <h3>Wholesale & Retail</h3>
-
         <p>
-            Available Sizes: <strong>18–28 & 24–34</strong><br>
-            Wholesale Price: <strong>Rs. 700</strong> per piece<br>
-            Retail Price: <strong>Rs. 1,999</strong> per piece
+            Wholesale orders available for retailers and businesses.<br>
+            Retail orders are also welcome.
         </p>
-
     </div>
-
 </section>
 
 <section class="features">
@@ -638,17 +843,14 @@ footer p{
 <section class="about" id="about">
 
     <div>
-
         <h2>
             Denim made<br>
             for your<br>
             style.
         </h2>
-
     </div>
 
     <div>
-
         <p>
             ELARA is a women's denim brand from Pakistan,
             focused on modern fits, premium denim and
@@ -660,38 +862,21 @@ footer p{
             embroidered and relaxed-fit denim.
         </p>
 
-        <a
-        href="#collection"
-        class="about-btn">
-            EXPLORE ELARA
-        </a>
-
+        <a href="#collection" class="about-btn">EXPLORE ELARA</a>
     </div>
 
 </section>
 
 <footer>
 
-    <div class="footer-logo">
-        ELARA
-    </div>
+    <div class="footer-logo">ELARA</div>
 
-    <p>
-        Premium Women's Denim · Made in Pakistan
-    </p>
+    <p>Premium Women's Denim · Made in Pakistan</p>
 
     <div class="footer-links">
-
-        <a href="#collection">SHOP</a>
-
-        <a href="#about">ABOUT</a>
-
-        <a
-        href="https://wa.me/923363121764"
-        target="_blank">
-            WHATSAPP
-        </a>
-
+        <button onclick="scrollToSection('collection')">SHOP</button>
+        <button onclick="scrollToSection('about')">ABOUT</button>
+        <a href="https://wa.me/923363121764" target="_blank">WHATSAPP</a>
     </div>
 
     <div class="copy">
@@ -700,12 +885,126 @@ footer p{
 
 </footer>
 
-<a
-class="whatsapp"
-href="https://wa.me/923363121764"
-target="_blank">
+<a class="whatsapp" href="https://wa.me/923363121764" target="_blank">
     WA
 </a>
 
-</body>
-</html>
+<!-- SIDE MENU -->
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<div class="side-menu" id="sideMenu">
+
+    <button class="close" onclick="closeMenu()">×</button>
+
+    <div class="menu-logo">ELARA</div>
+
+    <div class="menu-links">
+        <button onclick="goHome()">HOME</button>
+        <button onclick="showCategory('all')">ALL DENIM</button>
+        <button onclick="showCategory('wide leg')">WIDE LEG</button>
+        <button onclick="showCategory('embroidered')">EMBROIDERED</button>
+        <button onclick="showCategory('relaxed')">RELAXED FIT</button>
+        <button onclick="scrollToSection('about')">ABOUT ELARA</button>
+        <button onclick="openCart()">SHOPPING BAG</button>
+        <button onclick="openWhatsApp()">CONTACT</button>
+    </div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-panel" id="searchPanel">
+
+    <div class="search-top">
+        <input
+        id="searchInput"
+        type="search"
+        placeholder="Search ELARA..."
+        oninput="searchProducts(this.value)">
+
+        <button class="search-close" onclick="closeSearch()">×</button>
+    </div>
+
+    <div class="search-results" id="searchResults"></div>
+
+</div>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal">
+
+    <div class="product-modal">
+
+        <button class="modal-close" onclick="closeProduct()">×</button>
+
+        <div class="product-detail">
+
+            <img id="detailImage" class="detail-image" src="" alt="">
+
+            <div class="detail-info">
+
+                <h2 id="detailName"></h2>
+
+                <div id="detailType" class="detail-sub"></div>
+
+                <div id="detailPrice" class="detail-price"></div>
+
+                <div class="size-title">SELECT SIZE</div>
+
+                <div class="sizes" id="sizes"></div>
+
+                <div class="quantity">
+                    <button onclick="changeDetailQty(-1)">−</button>
+                    <span id="detailQty">1</span>
+                    <button onclick="changeDetailQty(1)">+</button>
+                </div>
+
+                <div class="detail-actions">
+                    <button class="add-btn" onclick="addCurrentToCart()">
+                        ADD TO SHOPPING BAG
+                    </button>
+
+                    <a id="detailWhatsApp"
+                    class="whatsapp-order"
+                    href="#"
+                    target="_blank">
+                        ORDER DIRECTLY ON WHATSAPP
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CART -->
+
+<div class="cart-panel" id="cartPanel">
+
+    <div class="cart-head">
+        <h2>Shopping Bag</h2>
+        <button class="close" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-total" id="cartTotal"></div>
+
+</div>
+
+<!-- CHECKOUT -->
+
+<div class="checkout" id="checkout">
+
+    <div class="checkout-inner">
+
+        <div class="checkout-head">
+            <h2>ELARA Checkout</h2>
+            <button class="close" onclick="closeCheckout()">×</button>
+        </div>
+
+        <form class="checkout-form" onsubmit="placeOrder(ev
