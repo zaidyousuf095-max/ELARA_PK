@@ -21,16 +21,10 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#fff;
     color:#111;
-    overflow-x:hidden;
-}
-
-body.no-scroll{
-    overflow:hidden;
 }
 
 button,
-input,
-select{
+input{
     font:inherit;
 }
 
@@ -42,9 +36,7 @@ a{
     color:inherit;
 }
 
-/* =========================
-   TOP BAR
-========================= */
+/* ================= TOP BAR ================= */
 
 .topbar{
     height:36px;
@@ -53,93 +45,78 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
+    text-align:center;
     font-size:10px;
     letter-spacing:2px;
-    text-align:center;
-    padding:0 10px;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 header{
     height:82px;
-    border-bottom:1px solid #e7e7e7;
+    background:#fff;
+    border-bottom:1px solid #ddd;
     display:grid;
     grid-template-columns:1fr auto 1fr;
     align-items:center;
-    padding:0 28px;
-    background:#fff;
+    padding:0 30px;
     position:sticky;
     top:0;
     z-index:500;
 }
 
 .menu-btn,
-.icon-btn{
+.search-btn,
+.cart-btn{
     border:0;
     background:none;
-    color:#111;
 }
 
 .menu-btn{
-    width:42px;
-    height:42px;
-    font-size:28px;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-}
-
-.logo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    font-size:30px;
+    width:45px;
+    text-align:left;
 }
 
 .logo img{
-    width:145px;
-    max-height:60px;
+    width:125px;
+    height:65px;
     object-fit:contain;
+    display:block;
 }
 
 .header-right{
     display:flex;
     justify-content:flex-end;
     align-items:center;
-    gap:20px;
+    gap:25px;
 }
 
-.icon-btn{
-    width:42px;
-    height:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
+.search-btn{
+    font-size:27px;
+}
+
+.cart-btn{
+    font-size:27px;
     position:relative;
 }
 
 .cart-count{
     position:absolute;
-    top:0;
-    right:-2px;
-    min-width:19px;
-    height:19px;
-    padding:0 5px;
-    border-radius:20px;
+    top:-8px;
+    right:-10px;
     background:#111;
     color:#fff;
+    width:21px;
+    height:21px;
+    border-radius:50%;
     font-size:10px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
-/* =========================
-   DRAWERS / OVERLAYS
-========================= */
+/* ================= SIDE MENU ================= */
 
 .overlay{
     position:fixed;
@@ -148,7 +125,7 @@ header{
     opacity:0;
     visibility:hidden;
     transition:.3s;
-    z-index:800;
+    z-index:900;
 }
 
 .overlay.active{
@@ -156,143 +133,105 @@ header{
     visibility:visible;
 }
 
-.drawer{
+.side-menu{
     position:fixed;
     top:0;
-    bottom:0;
-    width:min(420px,88vw);
+    left:-360px;
+    width:340px;
+    max-width:88%;
+    height:100vh;
     background:#fff;
-    z-index:900;
-    transition:.35s ease;
-    overflow-y:auto;
+    z-index:1000;
+    transition:.35s;
+    padding:28px;
+    overflow:auto;
 }
 
-.menu-drawer{
+.side-menu.active{
     left:0;
-    transform:translateX(-100%);
 }
 
-.cart-drawer{
-    right:0;
-    transform:translateX(100%);
+.menu-close{
+    background:none;
+    border:0;
+    font-size:30px;
+    float:right;
 }
 
-.drawer.active{
-    transform:translateX(0);
-}
-
-.drawer-header{
-    height:80px;
-    padding:0 25px;
-    border-bottom:1px solid #eee;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.drawer-header h2{
+.side-menu h2{
     font-family:Georgia,serif;
-    font-size:27px;
     font-weight:400;
+    font-size:30px;
+    margin:45px 0 30px;
 }
 
-.close-btn{
-    width:40px;
-    height:40px;
-    border:0;
-    background:none;
-    font-size:27px;
-}
-
-.menu-links{
-    padding:20px 25px;
-}
-
-.menu-links button{
-    width:100%;
-    background:none;
-    border:0;
+.side-menu a{
+    display:block;
+    text-decoration:none;
     border-bottom:1px solid #eee;
-    padding:20px 0;
-    text-align:left;
-    font-size:13px;
+    padding:18px 0;
+    font-size:12px;
     letter-spacing:2px;
 }
 
-.menu-links button:hover{
-    padding-left:8px;
-}
+/* ================= SEARCH ================= */
 
-/* =========================
-   SEARCH
-========================= */
-
-.search-overlay{
+.search-panel{
     position:fixed;
-    inset:0;
+    top:0;
+    left:0;
+    width:100%;
     background:#fff;
-    z-index:1000;
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(-15px);
-    transition:.3s;
-    overflow-y:auto;
+    z-index:1100;
+    transform:translateY(-100%);
+    transition:.35s;
+    padding:25px 7%;
+    border-bottom:1px solid #ddd;
 }
 
-.search-overlay.active{
-    opacity:1;
-    visibility:visible;
+.search-panel.active{
     transform:translateY(0);
 }
 
 .search-top{
-    height:82px;
-    border-bottom:1px solid #ddd;
     display:flex;
-    align-items:center;
     gap:15px;
-    padding:0 25px;
+    align-items:center;
 }
 
 .search-top input{
     flex:1;
     border:0;
-    outline:0;
-    font-size:25px;
+    border-bottom:1px solid #111;
+    padding:15px 5px;
+    outline:none;
+    font-size:20px;
 }
 
-.search-close{
+.close-search{
     border:0;
     background:none;
     font-size:28px;
 }
 
 .search-results{
-    padding:35px 5%;
+    margin-top:20px;
+    max-height:55vh;
+    overflow:auto;
 }
 
-.search-results-title{
-    font-family:Georgia,serif;
-    font-size:32px;
-    font-weight:400;
-    margin-bottom:30px;
+.search-result{
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
 }
 
-.search-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
-    position:relative;
-    width:100%;
     height:78vh;
     min-height:560px;
+    position:relative;
     overflow:hidden;
     background:#eee;
 }
@@ -310,151 +249,134 @@ header{
     background:linear-gradient(
         to top,
         rgba(0,0,0,.55),
-        rgba(0,0,0,.05) 60%,
-        transparent
+        transparent 60%
     );
 }
 
-.hero-text{
+.hero-content{
     position:absolute;
-    left:7%;
-    bottom:10%;
-    color:#fff;
+    left:6%;
+    bottom:8%;
     z-index:2;
+    color:#fff;
 }
 
-.hero-text small{
-    font-size:10px;
-    letter-spacing:4px;
+.hero-small{
+    font-size:11px;
+    letter-spacing:5px;
 }
 
-.hero-text h1{
+.hero h1{
     font-family:Georgia,serif;
-    font-size:60px;
+    font-size:64px;
     font-weight:400;
     line-height:1;
-    margin:15px 0 25px;
+    margin:18px 0 28px;
 }
 
 .hero-btn{
-    display:inline-block;
+    border:0;
     background:#fff;
     color:#111;
-    padding:16px 28px;
-    text-decoration:none;
-    font-size:10px;
-    letter-spacing:2px;
-    border:1px solid #fff;
+    padding:18px 42px;
+    font-size:11px;
+    letter-spacing:3px;
 }
 
-.hero-btn:hover{
-    background:#111;
-    color:#fff;
-}
+/* ================= FEATURE STRIP ================= */
 
-/* =========================
-   CATEGORY BAR
-========================= */
-
-.category-bar{
+.feature-strip{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(4,1fr);
     border-bottom:1px solid #ddd;
 }
 
-.category-btn{
-    border:0;
-    border-right:1px solid #ddd;
-    background:#fff;
+.feature-strip div{
     padding:24px 10px;
+    text-align:center;
+    border-right:1px solid #ddd;
     font-size:10px;
-    letter-spacing:1.5px;
+    letter-spacing:2px;
 }
 
-.category-btn:last-child{
-    border-right:0;
+.feature-strip div:last-child{
+    border:0;
 }
 
-.category-btn:hover,
-.category-btn.active{
-    background:#111;
-    color:#fff;
-}
-
-/* =========================
-   COLLECTION
-========================= */
+/* ================= COLLECTION ================= */
 
 .collection{
     padding:80px 5%;
 }
 
-.section-head{
+.collection-head{
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:end;
     margin-bottom:40px;
 }
 
-.section-head h2{
+.collection-head h2{
     font-family:Georgia,serif;
-    font-size:45px;
+    font-size:46px;
     font-weight:400;
 }
 
-.section-head span{
+.collection-head p{
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.filters{
+    display:flex;
+    gap:0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    margin-bottom:35px;
+}
+
+.filter{
+    background:#fff;
+    border:0;
+    padding:17px 28px;
     font-size:10px;
     letter-spacing:2px;
-    color:#555;
 }
+
+.filter.active{
+    background:#111;
+    color:#fff;
+}
+
+/* ================= PRODUCTS ================= */
 
 .products{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
+    gap:25px;
 }
 
 .product{
-    position:relative;
-    background:#f5f5f5;
-    overflow:hidden;
+    min-width:0;
 }
 
-.product-image-wrap{
+.product-image-box{
     position:relative;
     overflow:hidden;
-    background:#eee;
+    background:#f3f3f3;
+    cursor:pointer;
 }
 
 .product-image{
     width:100%;
-    height:520px;
+    height:560px;
     object-fit:cover;
     display:block;
     transition:.5s;
-    cursor:pointer;
 }
 
 .product:hover .product-image{
-    transform:scale(1.035);
-}
-
-.wishlist-btn{
-    position:absolute;
-    top:15px;
-    right:15px;
-    width:40px;
-    height:40px;
-    border:0;
-    border-radius:50%;
-    background:#fff;
-    font-size:19px;
-    z-index:2;
-}
-
-.wishlist-btn.active{
-    background:#111;
-    color:#fff;
+    transform:scale(1.025);
 }
 
 .quick-view{
@@ -462,10 +384,9 @@ header{
     left:15px;
     right:15px;
     bottom:15px;
-    padding:14px;
-    border:0;
     background:#fff;
-    color:#111;
+    border:0;
+    padding:15px;
     font-size:10px;
     letter-spacing:2px;
     opacity:0;
@@ -479,96 +400,45 @@ header{
 }
 
 .product-info{
-    background:#fff;
-    padding:18px 8px 22px;
+    padding:18px 2px 35px;
 }
 
 .product-name{
-    font-size:15px;
+    font-size:14px;
     margin-bottom:8px;
-    font-weight:500;
-    cursor:pointer;
 }
 
 .product-type{
     color:#777;
     font-size:11px;
     line-height:1.7;
-    margin-bottom:10px;
 }
 
-.price{
-    font-size:13px;
-    font-weight:bold;
+.product-price{
+    margin-top:12px;
+    font-size:12px;
     line-height:1.8;
 }
 
-.product-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin-top:15px;
-}
-
-.add-btn,
-.order-btn{
-    display:block;
-    border:0;
-    padding:14px 8px;
-    text-align:center;
-    text-decoration:none;
-    font-size:9px;
-    letter-spacing:1.2px;
-}
-
 .add-btn{
+    width:100%;
+    margin-top:15px;
     background:#111;
     color:#fff;
-}
-
-.order-btn{
-    background:#eee;
-    color:#111;
+    border:0;
+    padding:15px;
+    font-size:10px;
+    letter-spacing:2px;
 }
 
 .add-btn:hover{
     background:#333;
 }
 
-.order-btn:hover{
-    background:#ddd;
-}
-
-/* =========================
-   INFO BOX
-========================= */
-
-.info-box{
-    margin-top:50px;
-    padding:35px 20px;
-    background:#f5f3ee;
-    text-align:center;
-}
-
-.info-box h3{
-    font-family:Georgia,serif;
-    font-size:29px;
-    font-weight:400;
-    margin-bottom:12px;
-}
-
-.info-box p{
-    color:#666;
-    font-size:13px;
-    line-height:1.9;
-}
-
-/* =========================
-   ABOUT
-========================= */
+/* ================= ABOUT ================= */
 
 .about{
-    background:#f5f3ee;
+    background:#f4f2ed;
     padding:110px 8%;
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -580,230 +450,189 @@ header{
     font-family:Georgia,serif;
     font-size:65px;
     font-weight:400;
-    line-height:.98;
+    line-height:.95;
 }
 
 .about p{
     color:#666;
-    line-height:1.9;
     font-size:14px;
+    line-height:1.9;
+    margin-bottom:18px;
 }
 
-.about-btn{
-    display:inline-block;
-    margin-top:25px;
-    background:#111;
-    color:#fff;
-    padding:15px 25px;
-    text-decoration:none;
-    font-size:10px;
-    letter-spacing:2px;
-}
+/* ================= INFO ================= */
 
-/* =========================
-   FEATURES
-========================= */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border-bottom:1px solid #ddd;
-}
-
-.feature{
-    padding:55px 20px;
+.info{
+    padding:80px 8%;
     text-align:center;
-    border-right:1px solid #ddd;
 }
 
-.feature:last-child{
-    border:0;
-}
-
-.feature h3{
+.info h2{
     font-family:Georgia,serif;
-    font-size:21px;
+    font-size:40px;
     font-weight:400;
-    margin-bottom:10px;
 }
 
-.feature p{
-    color:#777;
-    font-size:11px;
+.info p{
+    color:#666;
+    max-width:650px;
+    margin:20px auto;
+    line-height:1.8;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
     background:#111;
     color:#fff;
-    text-align:center;
-    padding:75px 20px 30px;
+    padding:70px 7% 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
 }
 
 .footer-logo{
     font-family:Georgia,serif;
-    font-size:38px;
-    letter-spacing:8px;
+    font-size:42px;
+    letter-spacing:7px;
 }
 
 footer p{
-    color:#999;
+    color:#aaa;
     font-size:12px;
+    line-height:1.8;
     margin-top:15px;
 }
 
-.footer-links{
-    margin-top:30px;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+footer h3{
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:18px;
 }
 
-.footer-links button{
-    background:none;
-    border:0;
-    color:#fff;
-    font-size:10px;
-    letter-spacing:1px;
+footer a{
+    display:block;
+    color:#aaa;
+    text-decoration:none;
+    font-size:11px;
+    margin-bottom:12px;
 }
 
 .copy{
-    margin-top:45px;
     border-top:1px solid #333;
+    margin-top:60px;
     padding-top:25px;
     color:#777;
     font-size:10px;
 }
 
-/* =========================
-   WHATSAPP
-========================= */
+/* ================= CART ================= */
 
-.whatsapp{
+.cart-drawer{
     position:fixed;
-    right:20px;
-    bottom:20px;
-    width:58px;
-    height:58px;
-    background:#111;
-    color:#fff;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    font-size:10px;
-    letter-spacing:1px;
-    z-index:600;
-    box-shadow:0 5px 25px rgba(0,0,0,.2);
+    top:0;
+    right:-430px;
+    width:400px;
+    max-width:90%;
+    height:100vh;
+    background:#fff;
+    z-index:1001;
+    transition:.35s;
+    padding:28px;
+    overflow:auto;
 }
 
-/* =========================
-   CART
-========================= */
+.cart-drawer.active{
+    right:0;
+}
 
-.cart-body{
-    padding:20px;
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:20px;
+}
+
+.cart-header h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+}
+
+.cart-close{
+    background:none;
+    border:0;
+    font-size:28px;
+}
+
+.cart-items{
+    padding:25px 0;
 }
 
 .cart-item{
     display:grid;
     grid-template-columns:75px 1fr auto;
     gap:12px;
-    padding:18px 0;
+    align-items:center;
     border-bottom:1px solid #eee;
+    padding:15px 0;
 }
 
 .cart-item img{
     width:75px;
-    height:95px;
+    height:90px;
     object-fit:cover;
 }
 
-.cart-item-name{
-    font-size:13px;
-    margin-bottom:7px;
-}
-
-.cart-item-size{
-    color:#777;
-    font-size:10px;
-    margin-bottom:8px;
-}
-
-.cart-item-price{
+.cart-item h4{
     font-size:12px;
-    font-weight:bold;
+    font-weight:400;
 }
 
-.qty{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:10px;
-}
-
-.qty button{
-    width:25px;
-    height:25px;
-    border:1px solid #ddd;
-    background:#fff;
+.cart-item p{
+    font-size:11px;
+    color:#777;
+    margin-top:6px;
 }
 
 .remove-item{
     border:0;
     background:none;
     font-size:11px;
-    color:#888;
-}
-
-.cart-bottom{
-    border-top:1px solid #ddd;
-    padding:20px;
-    position:sticky;
-    bottom:0;
-    background:#fff;
 }
 
 .cart-total{
+    border-top:1px solid #111;
+    padding-top:20px;
+    font-size:14px;
     display:flex;
     justify-content:space-between;
-    font-size:15px;
-    margin-bottom:15px;
 }
 
-.checkout-btn{
+.checkout{
     width:100%;
-    border:0;
+    margin-top:20px;
+    padding:17px;
     background:#111;
     color:#fff;
-    padding:16px;
-    letter-spacing:1.5px;
+    border:0;
     font-size:10px;
+    letter-spacing:2px;
 }
 
-.empty-cart{
-    text-align:center;
-    padding:70px 20px;
-    color:#777;
-}
-
-/* =========================
-   MODAL
-========================= */
+/* ================= PRODUCT MODAL ================= */
 
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.6);
-    z-index:1100;
+    background:rgba(0,0,0,.65);
+    z-index:1200;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:20px;
     opacity:0;
     visibility:hidden;
@@ -816,97 +645,66 @@ footer p{
 }
 
 .modal-box{
+    width:900px;
+    max-width:100%;
+    max-height:90vh;
+    overflow:auto;
     background:#fff;
-    width:min(1000px,100%);
-    max-height:92vh;
-    overflow-y:auto;
-    position:relative;
-    transform:translateY(20px);
-    transition:.3s;
-}
-
-.modal.active .modal-box{
-    transform:translateY(0);
-}
-
-.modal-close{
-    position:absolute;
-    top:15px;
-    right:15px;
-    width:40px;
-    height:40px;
-    border:0;
-    background:#fff;
-    border-radius:50%;
-    font-size:24px;
-    z-index:2;
-}
-
-.product-detail{
     display:grid;
     grid-template-columns:1fr 1fr;
+    position:relative;
 }
 
-.detail-image{
+.modal-image{
     width:100%;
-    min-height:650px;
+    height:650px;
     object-fit:cover;
 }
 
-.detail-info{
-    padding:55px 45px;
+.modal-content{
+    padding:50px 40px;
 }
 
-.detail-info h2{
+.modal-content h2{
     font-family:Georgia,serif;
-    font-size:36px;
+    font-size:38px;
     font-weight:400;
-    margin-bottom:15px;
 }
 
-.detail-description{
+.modal-content .desc{
     color:#777;
-    line-height:1.8;
     font-size:13px;
+    line-height:1.8;
     margin:20px 0;
 }
 
-.detail-price{
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:25px;
+.modal-price{
+    font-size:16px;
+    line-height:2;
 }
 
-.size-title{
+.modal-size{
+    margin-top:25px;
+}
+
+.modal-size label{
+    display:block;
     font-size:10px;
-    letter-spacing:1.5px;
+    letter-spacing:2px;
     margin-bottom:10px;
 }
 
-.sizes{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:25px;
-}
-
-.size-btn{
-    min-width:55px;
-    padding:12px;
-    background:#fff;
+.modal-size select{
+    width:100%;
+    padding:14px;
     border:1px solid #ccc;
-    font-size:11px;
+    background:#fff;
 }
 
-.size-btn.selected{
-    background:#111;
-    color:#fff;
-    border-color:#111;
-}
-
-.detail-add{
+.modal-add{
     width:100%;
     padding:17px;
+    margin-top:20px;
     background:#111;
     color:#fff;
     border:0;
@@ -914,162 +712,143 @@ footer p{
     letter-spacing:2px;
 }
 
-.detail-whatsapp{
-    width:100%;
-    padding:16px;
-    background:#eee;
+.modal-close{
+    position:absolute;
+    right:15px;
+    top:12px;
     border:0;
-    margin-top:10px;
-    font-size:10px;
-    letter-spacing:1.5px;
+    background:#fff;
+    font-size:27px;
+    width:40px;
+    height:40px;
+    z-index:2;
 }
 
-/* =========================
-   TOAST
-========================= */
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:1px;
+    z-index:700;
+}
+
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
     left:50%;
-    bottom:25px;
-    transform:translate(-50%,30px);
+    bottom:30px;
+    transform:translate(-50%,100px);
     background:#111;
     color:#fff;
-    padding:14px 22px;
+    padding:15px 25px;
     font-size:11px;
     z-index:2000;
-    opacity:0;
-    visibility:hidden;
     transition:.3s;
 }
 
 .toast.show{
-    opacity:1;
-    visibility:visible;
     transform:translate(-50%,0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:900px){
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .search-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .product-detail{
-        grid-template-columns:1fr;
-    }
-
-    .detail-image{
-        min-height:450px;
-        max-height:550px;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .feature{
-        border-right:0;
-        border-bottom:1px solid #ddd;
-    }
-}
-
-@media(max-width:600px){
-
-    .topbar{
-        height:32px;
-        font-size:7px;
-        letter-spacing:1.3px;
-    }
+@media(max-width:800px){
 
     header{
-        height:70px;
-        padding:0 12px;
+        height:72px;
+        padding:0 18px;
     }
 
     .logo img{
-        width:105px;
-        max-height:48px;
-    }
-
-    .header-right{
-        gap:4px;
-    }
-
-    .icon-btn{
-        width:38px;
-        height:38px;
-        font-size:21px;
+        width:100px;
+        height:55px;
     }
 
     .menu-btn{
-        font-size:26px;
+        font-size:27px;
+    }
+
+    .header-right{
+        gap:15px;
+    }
+
+    .search-btn,
+    .cart-btn{
+        font-size:23px;
     }
 
     .hero{
-        height:68vh;
-        min-height:470px;
+        height:76vh;
+        min-height:560px;
     }
 
-    .hero-text{
+    .hero-content{
         left:6%;
-        bottom:8%;
+        bottom:6%;
     }
 
-    .hero-text h1{
-        font-size:42px;
+    .hero h1{
+        font-size:45px;
+        margin:14px 0 22px;
     }
 
-    .category-bar{
-        grid-template-columns:repeat(5,1fr);
-        overflow-x:auto;
+    .feature-strip{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .category-btn{
-        min-width:125px;
+    .feature-strip div:nth-child(2){
+        border-right:0;
     }
 
     .collection{
-        padding:55px 12px;
+        padding:55px 15px;
     }
 
-    .section-head{
+    .collection-head{
         display:block;
     }
 
-    .section-head h2{
-        font-size:32px;
-        margin-bottom:12px;
+    .collection-head h2{
+        font-size:34px;
+    }
+
+    .collection-head p{
+        margin-top:12px;
+    }
+
+    .filters{
+        overflow-x:auto;
+    }
+
+    .filter{
+        white-space:nowrap;
+        padding:15px 20px;
     }
 
     .products{
         grid-template-columns:1fr 1fr;
-        gap:10px;
+        gap:12px;
     }
 
     .product-image{
-        height:290px;
+        height:330px;
     }
 
     .quick-view{
         display:none;
-    }
-
-    .product-info{
-        padding:13px 6px 16px;
     }
 
     .product-name{
@@ -1080,67 +859,72 @@ footer p{
         font-size:9px;
     }
 
-    .price{
+    .product-price{
         font-size:10px;
     }
 
-    .product-actions{
-        grid-template-columns:1fr;
-        gap:5px;
-    }
-
-    .add-btn,
-    .order-btn{
-        padding:11px 4px;
-        font-size:7px;
+    .add-btn{
+        padding:12px 5px;
+        font-size:8px;
     }
 
     .about{
+        grid-template-columns:1fr;
         padding:70px 25px;
+        gap:35px;
     }
 
     .about h2{
-        font-size:45px;
+        font-size:48px;
     }
 
-    .info-box{
-        padding:30px 15px;
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:35px;
     }
 
-    .search-top{
-        padding:0 15px;
+    .modal-box{
+        grid-template-columns:1fr;
     }
 
-    .search-top input{
-        font-size:20px;
+    .modal-image{
+        height:400px;
     }
 
-    .search-results{
-        padding:30px 12px;
+    .modal-content{
+        padding:30px 22px;
     }
 
-    .search-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
+    .modal-content h2{
+        font-size:30px;
+    }
+}
+
+@media(max-width:430px){
+
+    .topbar{
+        font-size:8px;
+        letter-spacing:1.5px;
     }
 
-    .detail-info{
-        padding:35px 20px;
+    .hero h1{
+        font-size:38px;
     }
 
-    .detail-info h2{
-        font-size:29px;
+    .hero-btn{
+        padding:15px 28px;
     }
 
-    .detail-image{
-        min-height:400px;
+    .product-image{
+        height:280px;
     }
 
-    .whatsapp{
-        width:54px;
-        height:54px;
-        right:15px;
-        bottom:15px;
+    .collection-head h2{
+        font-size:30px;
+    }
+
+    .info h2{
+        font-size:30px;
     }
 }
 </style>
@@ -1148,163 +932,392 @@ footer p{
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ================= TOP ================= -->
+
 <div class="topbar">
-    ELARA — PREMIUM WOMEN'S DENIM · WHOLESALE & RETAIL
+ELARA — PREMIUM WOMEN'S DENIM · WHOLESALE & RETAIL
 </div>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
+
 <header>
 
-    <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
-        ☰
-    </button>
+<button class="menu-btn" onclick="openMenu()">☰</button>
 
-    <div class="logo">
-        <img
-        src="file_00000000043082119aa9a48a1ea4bdaf.png"
-        alt="ELARA">
-    </div>
+<div class="logo">
+<img src="file_00000000043082119aa9a48a1ea4bdaf.png" alt="ELARA">
+</div>
 
-    <div class="header-right">
+<div class="header-right">
 
-        <button class="icon-btn" onclick="openSearch()" aria-label="Search">
-            ⌕
-        </button>
+<button class="search-btn" onclick="openSearch()">⌕</button>
 
-        <button class="icon-btn" onclick="openCart()" aria-label="Cart">
-            🛒
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
+<button class="cart-btn" onclick="openCart()">
+🛒
+<span class="cart-count" id="cartCount">0</span>
+</button>
 
-    </div>
+</div>
 
 </header>
 
-<!-- MENU OVERLAY -->
-<div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<!-- ================= MENU ================= -->
 
-<!-- MENU DRAWER -->
-<div class="drawer menu-drawer" id="menuDrawer">
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-    <div class="drawer-header">
-        <h2>ELARA</h2>
-        <button class="close-btn" onclick="closeMenu()">×</button>
-    </div>
+<div class="side-menu" id="sideMenu">
 
-    <div class="menu-links">
+<button class="menu-close" onclick="closeMenu()">×</button>
 
-        <button onclick="goTo('home')">
-            HOME
-        </button>
+<h2>ELARA</h2>
 
-        <button onclick="goTo('collection')">
-            SHOP ALL
-        </button>
-
-        <button onclick="filterCategory('Wide Leg')">
-            WIDE LEG
-        </button>
-
-        <button onclick="filterCategory('Embroidered')">
-            EMBROIDERED
-        </button>
-
-        <button onclick="filterCategory('Relaxed Fit')">
-            RELAXED FIT
-        </button>
-
-        <button onclick="goTo('about')">
-            ABOUT ELARA
-        </button>
-
-        <button onclick="openSearch()">
-            SEARCH
-        </button>
-
-        <button onclick="openCart()">
-            SHOPPING BAG
-        </button>
-
-        <button onclick="openWhatsApp()">
-            CONTACT / WHATSAPP
-        </button>
-
-    </div>
+<a href="#collection" onclick="closeMenu()">SHOP COLLECTION</a>
+<a href="#about" onclick="closeMenu()">ABOUT ELARA</a>
+<a href="#info" onclick="closeMenu()">WHOLESALE</a>
+<a href="#info" onclick="closeMenu()">RETAIL</a>
+<a href="https://wa.me/923363121764" target="_blank">CONTACT US</a>
 
 </div>
 
-<!-- SEARCH -->
-<div class="search-overlay" id="searchOverlay">
+<!-- ================= SEARCH ================= -->
 
-    <div class="search-top">
+<div class="search-panel" id="searchPanel">
 
-        <input
-        id="searchInput"
-        type="search"
-        placeholder="Search denim..."
-        oninput="searchProducts()"
-        autocomplete="off">
+<div class="search-top">
 
-        <button
-        class="search-close"
-        onclick="closeSearch()">
-            ×
-        </button>
+<input
+id="searchInput"
+type="text"
+placeholder="Search denim..."
+oninput="searchProducts()">
 
-    </div>
-
-    <div class="search-results">
-
-        <h2 class="search-results-title">
-            Search Results
-        </h2>
-
-        <div
-        class="search-grid"
-        id="searchResults">
-        </div>
-
-    </div>
+<button class="close-search" onclick="closeSearch()">×</button>
 
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
+<div class="search-results" id="searchResults"></div>
 
-    <img
-    src="file_000000000e2882118b0e73aa51d306a3.png"
-    alt="ELARA Denim Collection">
+</div>
 
-    <div class="hero-text">
+<!-- ================= HERO ================= -->
 
-        <small>ELARA WOMEN'S DENIM</small>
+<section class="hero">
 
-        <h1>
-            Premium<br>
-            Denim Collection
-        </h1>
+<img
+src="file_000000000e2882118b0e73aa51d306a3.png"
+alt="ELARA Denim">
 
-        <a
-        href="#collection"
-        class="hero-btn">
-            SHOP COLLECTION
-        </a>
+<div class="hero-content">
 
-    </div>
+<div class="hero-small">
+ELARA WOMEN'S DENIM
+</div>
+
+<h1>
+Premium<br>
+Denim Collection
+</h1>
+
+<button
+class="hero-btn"
+onclick="scrollToCollection()">
+SHOP COLLECTION
+</button>
+
+</div>
 
 </section>
 
-<!-- CATEGORY -->
-<div class="category-bar">
+<!-- ================= FEATURE STRIP ================= -->
 
-    <button
-    class="category-btn active"
-    onclick="showAll(this)">
-        ALL
-    </button>
+<div class="feature-strip">
 
-    <button
-    class="category-btn"
-    onclick="filterCategory('Embroidered',this)">
-        EMBR
+<div>FLORAL EMBROIDERY</div>
+<div>PREMIUM DENIM</div>
+<div>WIDE LEG FIT</div>
+<div>RELAXED FIT</div>
+
+</div>
+
+<!-- ================= COLLECTION ================= -->
+
+<section class="collection" id="collection">
+
+<div class="collection-head">
+
+<h2>ELARA Collection</h2>
+
+<p>WHOLESALE & RETAIL AVAILABLE</p>
+
+</div>
+
+<div class="filters">
+
+<button class="filter active" onclick="filterProducts('all',this)">
+ALL
+</button>
+
+<button class="filter" onclick="filterProducts('wide',this)">
+WIDE LEG
+</button>
+
+<button class="filter" onclick="filterProducts('embroidered',this)">
+EMBROIDERED
+</button>
+
+<button class="filter" onclick="filterProducts('relaxed',this)">
+RELAXED
+</button>
+
+</div>
+
+<div class="products" id="products"></div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+<div>
+
+<h2>
+Denim made<br>
+for your<br>
+style.
+</h2>
+
+</div>
+
+<div>
+
+<p>
+ELARA is a women's denim brand from Pakistan,
+focused on modern fits, premium denim and
+contemporary everyday fashion.
+</p>
+
+<p>
+Our collection combines premium denim,
+modern silhouettes and detailed embroidery
+for everyday fashion.
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= INFO ================= -->
+
+<section class="info" id="info">
+
+<h2>Wholesale & Retail</h2>
+
+<p>
+Wholesale orders are available for retailers,
+boutiques and businesses. Retail customers are
+also welcome.
+</p>
+
+<p>
+Wholesale Price: Rs. 700 per piece<br>
+Retail Price: Rs. 1,999 per piece<br>
+Available Sizes: 18–28 & 24–34
+</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<div class="footer-logo">ELARA</div>
+
+<p>
+Premium Women's Denim<br>
+Made in Pakistan
+</p>
+
+</div>
+
+<div>
+
+<h3>SHOP</h3>
+
+<a href="#collection">All Denim</a>
+<a href="#collection">Wide Leg</a>
+<a href="#collection">Embroidered</a>
+<a href="#collection">Relaxed Fit</a>
+
+</div>
+
+<div>
+
+<h3>CONTACT</h3>
+
+<a href="https://wa.me/923363121764" target="_blank">
+WhatsApp
+</a>
+
+<a href="#about">
+About ELARA
+</a>
+
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 ELARA. All Rights Reserved.
+</div>
+
+</footer>
+
+<!-- ================= CART ================= -->
+
+<div class="cart-drawer" id="cartDrawer">
+
+<div class="cart-header">
+
+<h2>Your Bag</h2>
+
+<button class="cart-close" onclick="closeCart()">×</button>
+
+</div>
+
+<div class="cart-items" id="cartItems">
+
+<p style="color:#777;font-size:13px;">
+Your bag is empty.
+</p>
+
+</div>
+
+<div class="cart-total">
+
+<strong>Total</strong>
+<strong id="cartTotal">Rs. 0</strong>
+
+</div>
+
+<button class="checkout" onclick="checkout()">
+CHECKOUT ON WHATSAPP
+</button>
+
+</div>
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div class="modal" id="productModal">
+
+<div class="modal-box">
+
+<button class="modal-close" onclick="closeProduct()">×</button>
+
+<img
+class="modal-image"
+id="modalImage"
+src=""
+alt="Product">
+
+<div class="modal-content">
+
+<h2 id="modalName"></h2>
+
+<div class="desc" id="modalDesc"></div>
+
+<div class="modal-price">
+
+Wholesale: <strong id="modalWholesale"></strong><br>
+Retail: <strong id="modalRetail"></strong>
+
+</div>
+
+<div class="modal-size">
+
+<label>SELECT SIZE</label>
+
+<select id="modalSize">
+
+<option>18</option>
+<option>20</option>
+<option>22</option>
+<option>24</option>
+<option>26</option>
+<option>28</option>
+<option>30</option>
+<option>32</option>
+<option>34</option>
+
+</select>
+
+</div>
+
+<button
+class="modal-add"
+onclick="addModalProduct()">
+
+ADD TO BAG
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+class="whatsapp"
+href="https://wa.me/923363121764"
+target="_blank">
+
+WA
+
+</a>
+
+<div class="toast" id="toast">
+Added to bag
+</div>
+
+<script>
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const products = [
+
+{
+id:1,
+name:"Floral Wide Leg Denim",
+type:"wide embroidered",
+fit:"Premium Denim · Wide Leg Fit",
+sizes:"18–28 & 24–34",
+wholesale:700,
+retail:1999,
+image:"file_000000000e2882118b0e73aa51d306a3.png",
+description:"Premium floral embroidered wide-leg denim with a modern silhouette."
+},
+
+{
+id:2,
+name:"Grey Floral Embroidered Denim",
+type:"wide embroidered",
+fit:"Premium Denim · Wide Leg Fit",
+sizes:"18–28 & 24–34",
+wholesale:700,
+retail:1999,
+image:"file_000000009fd88211ae832e76fac450d9.jpg",
+description:"Grey floral embroidered denim designed for a premium contemporary look."
+},
+
+{
+id:3,
+nam
