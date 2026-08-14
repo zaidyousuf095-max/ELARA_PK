@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ELARA — Premium Women's Denim</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Arial,sans-serif;color:#111}button{font:inherit;cursor:pointer;border:0;background:none}a{text-decoration:none;color:inherit}
+.top{height:36px;background:#111;color:#fff;display:grid;place-items:center;font-size:10px;letter-spacing:2px;text-align:center}
+header{height:78px;border-bottom:1px solid #eee;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 24px;position:sticky;top:0;background:#fff;z-index:20}.logo img{width:125px;height:58px;object-fit:contain}.hamb{font-size:28px;justify-self:start}.icons{display:flex;gap:18px;justify-content:end}.ico{font-size:25px;position:relative}.count{position:absolute;right:-7px;top:-7px;width:18px;height:18px;border-radius:50%;background:#111;color:#fff;font-size:9px;display:grid;place-items:center}
+.hero{height:68vh;min-height:470px;position:relative;overflow:hidden}.hero>img{width:100%;height:100%;object-fit:cover}.shade{position:absolute;inset:0;background:linear-gradient(90deg,#0005,transparent 70%)}.heroText{position:absolute;left:7%;bottom:9%;color:#fff}.heroText small{letter-spacing:4px;font-size:10px}.heroText h1{font:400 58px Georgia,serif;line-height:1;margin:12px 0 22px}.btn{padding:14px 23px;letter-spacing:2px;font-size:10px}.white{background:#fff}.black{background:#111;color:#fff}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid #ddd}.cat{padding:20px 5px;border-right:1px solid #ddd;font-size:9px;letter-spacing:1.5px}.cat:last-child{border:0}
+section.collection{padding:75px 5%}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px}.head h2{font:400 42px Georgia,serif}.head p{font-size:10px;letter-spacing:2px;color:#666}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{cursor:pointer;background:#f5f5f3}.pic{height:510px;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover;transition:.4s;display:block}.product:hover .pic img{transform:scale(1.03)}.info{background:#fff;padding:16px 4px 20px}.name{font-size:14px;margin-bottom:7px}.type{font-size:10px;color:#777;line-height:1.7}.price{font-size:12px;font-weight:bold;line-height:1.7;margin-top:7px}.order{width:100%;background:#111;color:#fff;padding:13px;margin-top:13px;font-size:9px;letter-spacing:1.4px}
+.box{margin-top:35px;padding:40px 15px;background:#f5f3ee;text-align:center}.box h3{font:400 30px Georgia,serif;margin-bottom:10px}.box p{color:#666;font-size:13px;line-height:1.8}
+.features{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #ddd}.feature{text-align:center;padding:45px 20px;border-right:1px solid #ddd}.feature:last-child{border:0}.feature h3{font:400 20px Georgia,serif;margin-bottom:10px}.feature p{font-size:11px;color:#777}
+.about{background:#f5f3ee;padding:95px 8%;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.about h2{font:400 58px Georgia,serif;line-height:1}.about p{font-size:14px;color:#666;line-height:1.9}.about .btn{margin-top:22px}
+footer{background:#111;color:#fff;text-align:center;padding:65px 20px 28px}.flogo{font:35px Georgia,serif;letter-spacing:8px}.footerlinks{display:flex;justify-content:center;gap:25px;margin-top:28px;font-size:10px;letter-spacing:1px}.copy{border-top:1px solid #333;margin-top:40px;padding-top:22px;color:#777;font-size:10px}
+.float{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-size:10px;z-index:30}
+.back{position:fixed;inset:0;background:#0007;opacity:0;visibility:hidden;transition:.25s;z-index:50}.back.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;bottom:0;width:min(390px,90vw);background:#fff;z-index:60;padding:26px;transition:.3s}.left{left:0;transform:translateX(-100%)}.right{right:0;transform:translateX(100%)}.drawer.on{transform:translateX(0)}.dhead{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding-bottom:22px}.dhead b{font:25px Georgia,serif}.close{font-size:30px}.nav button{display:block;width:100%;text-align:left;padding:18px 0;border-bottom:1px solid #eee;font-size:12px;letter-spacing:1.5px}
+.search{position:fixed;top:0;left:0;right:0;background:#fff;z-index:70;padding:25px 6%;transform:translateY(-100%);transition:.3s;box-shadow:0 5px 20px #0002}.search.on{transform:translateY(0)}.searchrow{display:flex;gap:15px}.search input{flex:1;border:0;border-bottom:1px solid #111;padding:12px;font-size:18px;outline:0}
+.modal{position:fixed;z-index:80;left:50%;top:50%;width:min(900px,94vw);max-height:90vh;overflow:auto;background:#fff;transform:translate(-50%,-48%) scale(.98);opacity:0;visibility:hidden;transition:.25s}.modal.on{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}.modalgrid{display:grid;grid-template-columns:1fr 1fr}.modalimg{width:100%;height:560px;object-fit:cover}.modalinfo{padding:38px}.modalinfo h2{font:400 34px Georgia,serif;margin-bottom:10px}.muted{font-size:12px;color:#777;line-height:1.8}.sizes{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.size{border:1px solid #bbb;padding:10px 13px;font-size:11px}.size.sel{background:#111;color:#fff}.cartitems{margin-top:22px;max-height:55vh;overflow:auto}.item{display:grid;grid-template-columns:65px 1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #eee}.item img{width:65px;height:78px;object-fit:cover}.qty{display:flex;gap:8px;margin-top:7px}.qty button{border:1px solid #ddd;width:24px;height:24px}.total{display:flex;justify-content:space-between;margin-top:20px;font-weight:bold}.empty{text-align:center;color:#777;padding:40px 0;font-size:13px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#111;color:#fff;padding:12px 18px;font-size:11px;opacity:0;visibility:hidden;z-index:100}.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media(max-width:800px){header{height:70px;padding:0 15px}.logo img{width:105px}.hero{height:62vh;min-height:430px}.heroText{left:6%}.heroText h1{font-size:42px}.cats{overflow:hidden}.cat{font-size:8px;padding:17px 3px}.collection{padding:55px 12px}.head{display:block}.head h2{font-size:30px}.head p{margin-top:10px}.products{grid-template-columns:1fr 1fr;gap:10px}.pic{height:330px}.name{font-size:12px}.type{font-size:9px}.price{font-size:10px}.order{font-size:8px;padding:11px 3px}.about{grid-template-columns:1fr;gap:35px;padding:70px 25px}.about h2{font-size:45px}.features{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid #ddd}.modalgrid{grid-template-columns:1fr}.modalimg{height:380px}.modalinfo{padding:25px}}
+@media(max-width:430px){.top{font-size:8px}.heroText h1{font-size:37px}.pic{height:275px}}
+</style></head><body>
+
+<div class="top">ELARA — PREMIUM WOMEN'S DENIM · WHOLESALE & RETAIL</div>
+<header>
+<button class="hamb" onclick="menu()">☰</button>
+<a class="logo" href="#home"><img src="file_00000000043082119aa9a48a1ea4bdaf.png" alt="ELARA"></a>
+<div class="icons"><button class="ico" onclick="searchOpen()">⌕</button><button class="ico" onclick="cartOpen()">🛒<span class="count" id="count">0</span></button></div>
+</header>
+
+<main id="home">
+<div class="hero"><img src="file_000000000e2882118b0e73aa51d306a3.png" alt="ELARA Denim"><div class="shade"></div><div class="heroText"><small>ELARA WOMEN'S DENIM</small><h1>Premium<br>Denim Collection</h1><button class="btn white" onclick="goCollection()">SHOP COLLECTION</button></div></div>
+<div class="cats">
+<button class="cat" onclick="filter('all')">ALL DENIM</button><button class="cat" onclick="filter('embroidered')">EMBROIDERY</button><button class="cat" onclick="filter('wide')">WIDE LEG</button><button class="cat" onclick="filter('relaxed')">RELAXED FIT</button><button class="cat" onclick="filter('baggy')">BAGGY</button><button class="cat" onclick="filter('straight')">STRAIGHT FIT</button><button class="cat" onclick="filter('flare')">FLARE JEANS</button><button class="cat" onclick="filter('mom')">MOM FIT</button><button class="cat" onclick="filter('all')">WHOLESALE</button>
+</div>
+<section class="collection" id="collection"><div class="head"><h2>ELARA Collection</h2><p>WHOLESALE & RETAIL AVAILABLE</p></div><div class="products" id="products"></div>
+<div class="box"><h3>Wholesale & Retail</h3><p>Available Sizes: <b>18–28 & 24–34</b><br>Wholesale Price: <b>Rs. 700</b> per piece<br>Retail Price: <b>Rs. 1,999</b> per piece</p></div></section>
+<div class="features"><div class="feature"><h3>Premium Denim</h3><p>Quality fabric with attention to every detail.</p></div><div class="feature"><h3>Made in Pakistan</h3><p>Designed and manufactured in Pakistan.</p></div><div class="feature"><h3>Wholesale & Retail</h3><p>Orders available for retailers and individual customers.</p></div></div>
+<section class="about" id="about"><div><h2>Denim made<br>for your<br>style.</h2></div><div><p>ELARA is a women's denim brand from Pakistan, focused on modern fits, premium denim and contemporary everyday fashion.</p><p style="margin-top:18px">Explore our collection of wide-leg, embroidered and relaxed-fit denim.</p><button class="btn black" onclick="goCollection()">EXPLORE ELARA</button></div></section>
+</main>
+<footer><div class="flogo">ELARA</div><p>Premium Women's Denim · Made in Pakistan</p><div class="footerlinks"><a href="#collection">SHOP</a><a href="#about">ABOUT</a><a href="https://wa.me/923363121764" target="_blank">WHATSAPP</a></div><div class="copy">© 2026 ELARA. All Rights Reserved.</div></footer>
+<a class="float" href="https://wa.me/923363121764?text=Hello%20ELARA%2C%20I%20want%20to%20know%20more%20about%20your%20denim." target="_blank">WA</a>
+
+<div class="back" id="back" onclick="closeAll()"></div>
+<aside class="drawer left" id="menuDrawer"><div class="dhead"><b>ELARA</b><button class="close" onclick="closeAll()">×</button></div><nav class="nav"><button onclick="closeAll();goCollection()">SHOP COLLECTION</button><button onclick="filter('wide')">WIDE LEG</button><button onclick="filter('embroidered')">EMBROIDERED</button><button onclick="filter('relaxed')">RELAXED FIT</button><button onclick="filter('baggy')">BAGGY</button><button onclick="filter('straight')">STRAIGHT FIT</button><button onclick="filter('flare')">FLARE JEANS</button><button onclick="filter('mom')">MOM FIT</button><button onclick="closeAll();document.getElementById('about').scrollIntoView()">ABOUT ELARA</button><button onclick="window.open('https://wa.me/923363121764','_blank')">CONTACT / WHATSAPP</button></nav></aside>
+
+<aside class="drawer right" id="cartDrawer"><div class="dhead"><b>Shopping Bag</b><button class="close" onclick="closeAll()">×</button></div><div class="cartitems" id="cartitems"></div><div class="total"><span>Total</span><span id="total">Rs. 0</span></div><button class="btn black" style="width:100%;margin-top:20px" onclick="checkout()">CHECKOUT ON WHATSAPP</button></aside>
+
+<div class="search" id="search"><div class="searchrow"><input id="q" placeholder="Search denim..." oninput="search(this.value)"><button class="close" onclick="closeAll()">×</button></div></div>
+
+<div class="back" id="modalBack" onclick="productClose()"></div>
+<div class="modal" id="modal"><div class="modalgrid"><img id="mimg" class="modalimg"><div class="modalinfo"><button class="close" style="float:right" onclick="productClose()">×</button><h2 id="mname"></h2><div class="muted" id="mtype"></div><div style="font-weight:bold;margin-top:20px" id="mprice"></div><div style="font-size:10px;letter-spacing:1.5px;margin-top:24px">SELECT SIZE</div><div class="sizes" id="sizes"></div><button class="btn black" style="width:100%" onclick="add()">ADD TO BAG</button><button class="btn" style="width:100%;margin-top:10px;background:#eee" onclick="waOrder()">ORDER ON WHATSAPP</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const WA='923363121764';
+const P=[
+{id:1,n:'Floral Wide Leg Denim',t:'Premium Denim · Wide Leg Fit',s:'18–28 & 24–34',w:700,r:1999,img:'file_000000000e2882118b0e73aa51d306a3.png',tags:['wide','embroidered']},
+{id:2,n:'Grey Floral Embroidered Denim',t:'Premium Denim · Wide Leg Fit',s:'18–28 & 24–34',w:700,r:1999,img:'file_000000009fd88211ae832e76fac450d9.jpg',tags:['wide','embroidered']},
+{id:3,n:'Butterfly Embroidered Denim',t:'Premium Denim · Relaxed Fit',s:'18–28 & 24–34',w:700,r:1999,img:'1786184006290.png',tags:['relaxed','embroidered']}
+];
+let bag=[],current=null,size=null;
+function render(a=P){products.innerHTML=a.length?a.map(p=>`<article class="product" onclick="productOpen(${p.id})"><div class="pic"><img src="${p.img}" alt="${p.n}"></div><div class="info"><div class="name">${p.n}</div><div class="type">${p.t}<br>Sizes: ${p.s}</div><div class="price">Wholesale: Rs. ${p.w.toLocaleString()}<br>Retail: Rs. ${p.r.toLocaleString()}</div><button class="order" onclick="event.stopPropagation();quick(${p.id})">ORDER ON WHATSAPP</button></div></article>`).join(''):'<div style="grid-column:1/-1;text-align:center;padding:50px;color:#777">No products found.</div>'}
+function productOpen(id){current=P.find(x=>x.id===id);size=null;mimg.src=current.img;mname.textContent=current.n;mtype.innerHTML=current.t+'<br>Available Sizes: '+current.s;mprice.innerHTML='Retail: Rs. '+current.r.toLocaleString()+'<br>Wholesale: Rs. '+current.w.toLocaleString();sizes.innerHTML=current.s.split(' & ').map(x=>`<button class="size" onclick="pick(this,'${x}')">${x}</button>`).join('');modal.classList.add('on');modalBack.classList.add('on');document.body.style.overflow='hidden'}
+function pick(b,s){size=s;document.querySelectorAll('.size').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')}
+function productClose(){modal.classList.remove('on');modalBack.classList.remove('on');document.body.style.overflow=''}
+function add(){if(!size)return toastMsg('Please select a size first.');bag.push({p:current,s:size,q:1});cartRender();productClose();cartOpen()}
+function cartRender(){count.textContent=bag.reduce((a,x)=>a+x.q,0);if(!bag.length){cartitems.innerHTML='<div class="empty">Your shopping bag is empty.</div>';total.textContent='Rs. 0';return}cartitems.innerHTML=bag.map((x,i)=>`<div class="item"><img src="${x.p.img}"><div><b style="font-size:11px">${x.p.n}</b><div style="font-size:10px;color:#777">Size: ${x.s}<br>Rs. ${x.p.r.toLocaleString()}</div><div class="qty"><button onclick="qty(${i},-1)">−</button>${x.q}<button onclick="qty(${i},1)">+</button></div></div><button class="close" style="font-size:20px" onclick="bag.splice(${i},1);cartRender()">×</button></div>`).join('');total.textContent='Rs. '+bag.reduce((a,x)=>a+x.p.r*x.q,0).toLocaleString()}
+function qty(i,n){bag[i].q+=n;if(bag[i].q<1)bag.splice(i,1);cartRender()}
+function checkout(){if(!bag.length)return toastMsg('Your shopping bag is empty.');let t='Hello ELARA, I want to place an order:%0A%0A';bag.forEach(x=>t+=encodeURIComponent(x.p.n+' — Size '+x.s+' — Qty '+x.q)+'%0A');window.open('https://wa.me/'+WA+'?text='+t,'_blank')}
+function waOrder(){if(!current)return;window.open('https://wa.me/'+WA+'?text='+encodeURIComponent('Hello ELARA, I want to order '+current.n+(size?' — Size '+size:'')),'_blank')}
+function quick(id){let p=P.find(x=>x.id===id);window.open('https://wa.me/'+WA+'?text='+encodeURIComponent('Hello ELARA, I want to order '+p.n),'_blank')}
+function filter(tag){render(tag==='all'?P:P.filter(p=>p.tags.includes(tag)));closeAll();goCollection()}
+function search(q){q=q.toLowerCase();render(P.filter(p=>(p.n+' '+p.t).toLowerCase().includes(q)))}
+function goCollection(){document.getElementById('collection').scrollIntoView({behavior:'smooth'})}
+function menu(){closeAll();menuDrawer.classList.add('on');back.classList.add('on')}
+function cartOpen(){closeAll();cartRender();cartDrawer.classList.add('on');back.classList.add('on')}
+function searchOpen(){closeAll();search.classList.add('on');setTimeout(()=>q.focus(),150)}
+function closeAll(){menuDrawer.classList.remove('on');cartDrawer.classList.remove('on');search.classList.remove('on');back.classList.remove('on')}
+function toastMsg(x){toast.textContent=x;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),2200)}
+render();cartRender();
+</script></body></html>
